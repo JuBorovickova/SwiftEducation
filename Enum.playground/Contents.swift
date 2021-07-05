@@ -2,7 +2,7 @@ enum Gender {
     case male
     case female
 }
-class Human {
+class Man {
     let name: String
     let age: Int?
     let gender: Gender
@@ -23,6 +23,32 @@ class Human {
     }
 }
 
-let anna = Human(name: "Anna", gender: .female)
+//let anna = Man(name: "Anna", gender: .female)
 
-anna.sayAboutYourself()
+//anna.sayAboutYourself()
+
+enum UniversityStage {
+    case first
+    case second
+    case third
+    case forth
+    case fifth
+}
+
+class Student: Man {
+    let universityName: String
+    let stage: UniversityStage
+    init(name: String, age: Int? = nil, gender: Gender = .female, university: String, stage: UniversityStage) {
+        self.universityName = university
+        self.stage = stage
+        super.init(name: name, age: age, gender: gender)
+    }
+    override func sayAboutYourself() {
+        super.sayAboutYourself()
+        print("I am lerning in the \(universityName) university, on \(stage) stage")
+    }
+}
+let vasya = Student (name: "Vasya", age: 22, gender: .male, university: "USUE", stage: .fifth)
+
+vasya.sayAboutYourself()
+
