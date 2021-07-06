@@ -23,9 +23,9 @@ class Man {
     }
 }
 
-//let anna = Man(name: "Anna", gender: .female)
+let anna = Man(name: "Anna", gender: .female)
 
-//anna.sayAboutYourself()
+anna.sayAboutYourself()
 
 enum UniversityStage {
     case first
@@ -52,3 +52,18 @@ let vasya = Student (name: "Vasya", age: 22, gender: .male, university: "USUE", 
 
 vasya.sayAboutYourself()
 
+class Employeer: Man {
+    let workPlace: String
+    let position: String
+    init(name: String, age: Int? = nil, gender: Gender = .female, workPlace: String, position: String) {
+        self.workPlace = workPlace
+        self.position = position
+        super.init(name: name, age: age, gender: gender)
+    }
+    override func sayAboutYourself() {
+        super.sayAboutYourself()
+        print("i am working in the \(workPlace), and I am \(position)" )
+    }
+}
+let employeer = Employeer (name: "Fedor", age: 34, gender: . male, workPlace: "SOBR", position: "manager")
+employeer.sayAboutYourself()
