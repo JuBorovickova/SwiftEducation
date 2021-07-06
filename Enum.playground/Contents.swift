@@ -24,7 +24,6 @@ class Man {
 }
 
 let anna = Man(name: "Anna", gender: .female)
-
 anna.sayAboutYourself()
 
 enum UniversityStage {
@@ -49,7 +48,6 @@ class Student: Man {
     }
 }
 let vasya = Student (name: "Vasya", age: 22, gender: .male, university: "USUE", stage: .fifth)
-
 vasya.sayAboutYourself()
 
 class Employeer: Man {
