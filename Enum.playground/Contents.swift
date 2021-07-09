@@ -1,6 +1,15 @@
 enum Gender {
     case male
     case female
+    
+    var title: String {
+        switch self {
+        case .male:
+            return "man"
+        case .female:
+            return "white woman"
+        }
+    }
 }
 class Man {
     private let name: String
@@ -17,14 +26,7 @@ class Man {
         self.gender = gender
     }
     func sayAboutYourself() {
-        var aboutYourself: String = "Hi, my name is \(fullName), I am \(age ?? 0) years old,"
-        switch gender {
-        case .male:
-            aboutYourself = aboutYourself + " and I am male"
-        case .female:
-            aboutYourself = aboutYourself + " and I am female"
-        }
-        print(aboutYourself)
+        print ("Hi, my name is \(fullName), I am \(age ?? 0) years old, \(gender.title)")
     }
 }
 
@@ -72,4 +74,5 @@ let employeer = Employeer (name: "Fedor", surname: "Kozlov", age: 34, gender: . 
 employeer.sayAboutYourself()
 
 print(anna.fullName)
+
 
