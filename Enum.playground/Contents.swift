@@ -30,7 +30,7 @@ class Man {
     }
 }
 
-let anna = Man(name: "Anna", surname: "Popova", gender: .female)
+let anna = Man(name: "Anna", surname: "Popova", age: 21, gender: .female)
 anna.sayAboutYourself()
 
 enum UniversityStage {
@@ -39,6 +39,20 @@ enum UniversityStage {
     case third
     case forth
     case fifth
+    var title: String {
+        switch self {
+        case .first:
+            return "1th stage"
+        case .second:
+            return "2th stage"
+        case .third:
+            return "3th stage"
+        case .forth:
+            return "4th stage"
+        case .fifth:
+            return "5th stage"
+        }
+    }
 }
 
 class Student: Man {
@@ -51,10 +65,10 @@ class Student: Man {
     }
     override func sayAboutYourself() {
         super.sayAboutYourself()
-        print("I am lerning in the \(universityName) university, on \(stage) stage")
+        print("I am lerning in the \(universityName) university, on \(stage.title)")
     }
 }
-let vasya = Student (name: "Vasya", surname: "Lutov", age: 22, gender: .male, university: "USUE", stage: .fifth)
+let vasya = Student(name: "Vasya", surname: "Lutov", age: 22, gender: .male, university: "USUE", stage: .fifth)
 vasya.sayAboutYourself()
 
 class Employeer: Man {
@@ -70,7 +84,7 @@ class Employeer: Man {
         print("i am working in the \(workPlace), and I am \(position)" )
     }
 }
-let employeer = Employeer (name: "Fedor", surname: "Kozlov", age: 34, gender: . male, workPlace: "SOBR", position: "manager")
+let employeer = Employeer(name: "Fedor", surname: "Kozlov", age: 34, gender: . male, workPlace: "SOBR", position: "manager")
 employeer.sayAboutYourself()
 
 print(anna.fullName)
